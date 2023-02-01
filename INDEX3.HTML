@@ -1,0 +1,93 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>
+      Query top features from a FeatureLayer APP
+    </title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/1.0.0-beta.97/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/1.0.0-beta.97/calcite.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.25/esri/themes/dark/main.css"
+    />
+    <script src="https://js.arcgis.com/4.25/"></script>
+
+    <link rel="stylesheet" href="STYLES.CSS">
+    <script src="SCRIPTS2.JS"></script>
+  </head>
+
+  <body>
+    <!--Mapa web-->
+    <div id="viewDiv"></div>
+    <!--contenedor FORM-->
+    <calcite-panel id="infoDiv" class="calcite-theme-dark">
+      <h3 class="heading" slot="header-content">
+       POB Total en Honduras 1998,2001,2013.
+      </h3>
+      <div id="content" style="padding: 5px">
+        <label>
+          <calcite-radio-group
+            id="orderDirectionSelection"
+            layout="horizontal"
+            appearance="outline"
+            scale="m"
+            width="auto">
+            <calcite-radio-group-item value="DESC" checked="">DEPT Mayor</calcite-radio-group-item>
+            <calcite-radio-group-item value="ASC">Dept menor</calcite-radio-group-item>
+          </calcite-radio-group> </label><br /><br />
+        <label>
+          Numero de entidades que se mostraran:
+          <calcite-select id="topCountSelect" scale="s" width="auto">
+            <calcite-option label="1" value="1"></calcite-option>
+            <calcite-option label="2" value="2"></calcite-option>
+            <calcite-option label="3" value="3"></calcite-option>
+          </calcite-select> </label
+        ><br />
+        <label>
+          Year:
+          <calcite-select id="orderByFieldSelect" scale="s" width="auto">
+            <calcite-option label="1998" value="PO1998"></calcite-option>
+            <calcite-option label="2001" value="POB2001"></calcite-option>
+            <calcite-option label="2013" value="POB2013"></calcite-option>
+          </calcite-select> </label
+        ><br />
+        <div style="width: 360px; max-width: 100%; display: flex;flex-direction: row;">
+        <calcite-button
+            id="query-parks"
+            width="half"
+            appearance="solid"
+            alignment="center"
+            scale="s">
+            Query entidades
+        </calcite-button>
+        <calcite-button
+            id="clear-query"
+            width="half"
+            appearance="outline"
+            alignment="center"
+            scale="s">
+            Limpiar Query
+          </calcite-button>
+        </div>
+        <br />
+      </div>
+      <calcite-panel id="resultsDiv">
+        <h3 class="heading" id="resultsHeading" slot="header-content">
+          Resultados
+        </h3>
+        <div id="results"></div>
+      </calcite-panel>
+    </calcite-panel>
+  </body>
+</html>

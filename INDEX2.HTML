@@ -1,0 +1,96 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>
+      Query top features from a FeatureLayer | Sample | ArcGIS Maps SDK for
+      JavaScript 4.25
+    </title>
+    <script
+      type="module"
+      src="https://js.arcgis.com/calcite-components/1.0.0-beta.97/calcite.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://js.arcgis.com/calcite-components/1.0.0-beta.97/calcite.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://js.arcgis.com/4.25/esri/themes/dark/main.css"
+    />
+    <script src="https://js.arcgis.com/4.25/"></script>
+
+    <link rel="stylesheet" href="STYLES.CSS">
+    <script src="SCRIPT.JS"></script>
+  </head>
+
+  <body>
+    <!--Mapa web-->
+    <div id="viewDiv"></div>
+    <!--contenedor FORM-->
+    <calcite-panel id="infoDiv" class="calcite-theme-dark">
+      <h3 class="heading" slot="header-content">
+        Most or least visited parks by states
+      </h3>
+      <div id="content" style="padding: 5px">
+        <label>
+          <calcite-radio-group
+            id="orderDirectionSelection"
+            layout="horizontal"
+            appearance="outline"
+            scale="m"
+            width="auto">
+            <calcite-radio-group-item value="DESC" checked="">Most visited</calcite-radio-group-item>
+            <calcite-radio-group-item value="ASC">Least visited</calcite-radio-group-item
+            >
+          </calcite-radio-group> </label><br /><br />
+        <label>
+          Number of parks to be returned from each state:
+          <calcite-select id="topCountSelect" scale="s" width="auto">
+            <calcite-option label="1" value="1"></calcite-option>
+            <calcite-option label="2" value="2"></calcite-option>
+            <calcite-option label="3" value="3"></calcite-option>
+          </calcite-select> </label
+        ><br />
+        <label>
+          Year:
+          <calcite-select id="orderByFieldSelect" scale="s" width="auto">
+            <calcite-option label="Total of all time" value="TOTAL"></calcite-option>
+            <calcite-option label="2018" value="F2018"></calcite-option>
+            <calcite-option label="2019" value="F2019"></calcite-option>
+            <calcite-option label="2020" value="F2020"></calcite-option>
+          </calcite-select> </label
+        ><br />
+        <div style="width: 360px; max-width: 100%; display: flex;flex-direction: row;">
+        <calcite-button
+            id="query-parks"
+            width="half"
+            appearance="solid"
+            alignment="center"
+            scale="s">
+            Query parks
+        </calcite-button>
+        <calcite-button
+            id="clear-query"
+            width="half"
+            appearance="outline"
+            alignment="center"
+            scale="s">
+            Clear query
+          </calcite-button>
+        </div>
+        <br />
+      </div>
+      <calcite-panel id="resultsDiv">
+        <h3 class="heading" id="resultsHeading" slot="header-content">
+          Results
+        </h3>
+        <div id="results"></div>
+      </calcite-panel>
+    </calcite-panel>
+  </body>
+</html>
